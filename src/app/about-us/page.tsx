@@ -86,8 +86,8 @@ export function AboutSection() {
                     {/* Kepala dan Wakil */}
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
                     {teamMembersR1.map(({name, role, imgsrc, altxt}, index: number) => (
-                        <Card key={index} className="w-56 sm:w-64">
-                        <div className="flex flex-col justify-center items-center">
+                        <Card key={index} className="w-60 sm:w-70 shadow-md hover:shadow-xl transition">
+                        <div className="flex flex-col justify-center items-center ">
                             <Image
                             src={imgsrc}
                             alt={altxt}
@@ -106,7 +106,7 @@ export function AboutSection() {
                 {/* Kepala Bidang */}
              <div className="flex flex-col sm:flex-row justify-center items-center gap-2 md:mt-5 md:px-5 sm:gap-8">
                 {teamMembersR2.map(({name, role, imgsrc, altxt}, index: number) => (
-                    <Card key={index} className="w-56 sm:w-64">
+                    <Card key={index} className="w-60 sm:w-70 shadow-md hover:shadow-xl transition">
                     <div className="flex flex-col justify-center items-center">
                         <Image
                         src={imgsrc}
@@ -116,7 +116,7 @@ export function AboutSection() {
                         className="object-cover rounded"/>
                         <div className="flex flex-col mx-auto text-center mt-2">
                             <h3 className="font-semibold text-base sm:text-lg">{name}</h3>
-                            <h6 className="text-xs sm:text-sm text-gray-600">{role}</h6>
+                            <h6 className="text-xs sm:text-sm text-gray-600 ">{role}</h6>
                         </div>
                     </div>
                 </Card>

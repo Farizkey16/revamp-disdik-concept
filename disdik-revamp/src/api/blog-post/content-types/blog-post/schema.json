@@ -14,26 +14,17 @@
     "title": {
       "type": "string"
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
-    },
-    "author": {
-      "type": "string"
-    },
-    "publishDate": {
-      "type": "date"
-    },
     "summary": {
       "type": "blocks"
     },
     "content": {
       "type": "blocks"
     },
-    "Berita": {
-      "type": "component",
-      "component": "berita.tags",
-      "repeatable": false
+    "publishDate": {
+      "type": "date"
+    },
+    "author": {
+      "type": "string"
     }
   }
 }

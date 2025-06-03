@@ -3,10 +3,10 @@
 export default function CompanyOverview() {
 
     return (
-        <section className="py-5">
-            <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-5 sm:mb-8 text-center">Mengenai Disdik Jakarta</h2>
-                <p className="text-gray-700 mb-6 sm:mb-10 leading-normal text-sm sm:text-base">
+        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
+            <div className="max-w-4xl mx-auto">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-10 text-center">Mengenai Disdik Jakarta</h2>
+                <p className="text-gray-700 mb-6 sm:mb-10 leading-relaxed text-sm sm:text-base text-justify">
                 Dinas Pendidikan Provinsi DKI Jakarta adalah lembaga pemerintah daerah yang bertanggung jawab atas pengelolaan dan pengembangan sistem pendidikan di wilayah DKI Jakarta. Dengan semangat{" "}
                 <span className="font-semibold italic">"Mewujudkan Pendidikan yang Tuntas dan Berkualitas untuk Semua"</span>, mereka berkomitmen untuk menyediakan akses pendidikan yang merata, meningkatkan kualitas pembelajaran, serta memperkuat ekosistem pendidikan yang inklusif dan berkelanjutan. 
                 </p>
