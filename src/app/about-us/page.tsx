@@ -85,8 +85,8 @@ export function AboutSection() {
             <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-gray-800 mb-4 sm:mb-6 text-center bg-white/80 py-2 rounded">Struktur Organisasi</h2>
                     {/* Kepala dan Wakil */}
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
-                    {teamMembersR1.map(({name, role, imgsrc, altxt}) => (
-                        <Card className="w-56 sm:w-64">
+                    {teamMembersR1.map(({name, role, imgsrc, altxt}, index: number) => (
+                        <Card key={index} className="w-56 sm:w-64">
                         <div className="flex flex-col justify-center items-center">
                             <Image
                             src={imgsrc}
@@ -105,8 +105,8 @@ export function AboutSection() {
             
                 {/* Kepala Bidang */}
              <div className="flex flex-col sm:flex-row justify-center items-center gap-2 md:mt-5 md:px-5 sm:gap-8">
-                {teamMembersR2.map(({name, role, imgsrc, altxt}) => (
-                    <Card className="w-56 sm:w-64">
+                {teamMembersR2.map(({name, role, imgsrc, altxt}, index: number) => (
+                    <Card key={index} className="w-56 sm:w-64">
                     <div className="flex flex-col justify-center items-center">
                         <Image
                         src={imgsrc}
