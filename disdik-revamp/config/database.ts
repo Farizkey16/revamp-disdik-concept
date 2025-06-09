@@ -1,5 +1,11 @@
 import path from 'path';
 
+type EnvFunction = {
+  (key: string, defaultValue?: any): string;
+  int: (key: string, defaultValue?: number) => number;
+  bool: (key: string, defaultValue?: boolean) => boolean;
+};
+
 export default ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
 
