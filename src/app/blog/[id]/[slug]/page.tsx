@@ -2,7 +2,12 @@ import { apiBackend } from "@/utils/apiHelper";
 import parse from "html-react-parser"
 import Navbar from "@/components/Header";
 
-
+interface Props {
+    params: {
+        id: string;
+        slug: string;
+    };
+}
 
 const getBlogPostDetail = async (id:string) => {
     
@@ -16,11 +21,11 @@ const getBlogPostDetail = async (id:string) => {
     }
 }
 
-export default async function BlogPostPage({params,}: { params: { id: string; slug: string}}) {
+export default async function BlogPostPage({params,}: Props) {
     const blog = await getBlogPostDetail(params.id);
 
     if (!blog) {
-        return <div>Blog post not found.</div>
+        return <div>Blog tidak ditemukan.</div>
     }
 
     return (
