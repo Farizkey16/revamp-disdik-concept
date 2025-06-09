@@ -6,7 +6,7 @@ type EnvFunction = {
   bool: (key: string, defaultValue?: boolean) => boolean;
 };
 
-export default ({ env }) => {
+export default ({ env }: {env: EnvFunction}) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
 
   const connections = {
