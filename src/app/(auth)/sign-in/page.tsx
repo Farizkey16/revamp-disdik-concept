@@ -95,7 +95,7 @@ export default function SignInPage() {
                 aria-label="Password"
                 ref={loginRefPassword}
               />
-              <Button className="mt-0 md:w-16" onClick={showPassword}>
+              <Button id="password" className="mt-0 md:w-16" onClick={showPassword}>
                 {showPass === "password" ? 
                 (<Eye size={24}/>)
                   :
@@ -103,7 +103,7 @@ export default function SignInPage() {
                 }
               </Button>
             </div>
-            <Button type="submit" className="w-full" > 
+            <Button id="conf-password" type="submit" className="w-full" > 
               Sign In
             </Button>
             <h2 className="text-center text-gray-800 hover:text-gray-500 underline"><Link href="/sign-up">Not registered yet? Click here to sign up!</Link></h2>

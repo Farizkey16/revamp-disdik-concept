@@ -112,7 +112,7 @@ export default function SignUpPage() {
                 required
                 ref={inputRefPassword}
               />
-              <Button onClick={showPassword} className=" md:w-16">
+              <Button id="password"onClick={showPassword} className=" md:w-16">
                 {showPass === "password" ? 
                 (<Eye size={24}/>)
                   :
@@ -129,7 +129,7 @@ export default function SignUpPage() {
                 required
                 ref={inputRefConfPassword}
               />
-              <Button onClick={showPassword} className="md:w-16">
+              <Button id="conf-password" onClick={showPassword} className="md:w-16">
                 {showPass === "password" ? 
                 (<Eye size={24}/>)
                   :
@@ -137,7 +137,7 @@ export default function SignUpPage() {
                 }
               </Button>
             </div>
-            <Button type="submit" className="w-full">
+            <Button id="register-btn"type="submit" className="w-full">
               Register
             </Button>
           </form>

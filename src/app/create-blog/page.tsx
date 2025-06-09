@@ -78,7 +78,7 @@ function BlogForm() {
                     <textarea className="border-2 rounded-md p-2" rows={8} placeholder="Write the content of your post here" value={content} onChange={e => setContent(e.target.value)}/>
                 </div>
             </div>
-            <Button type="submit">Post Blog</Button>
+            <Button id="submit-post" type="submit">Post Blog</Button>
           </form>
         </Card>
       </div>
