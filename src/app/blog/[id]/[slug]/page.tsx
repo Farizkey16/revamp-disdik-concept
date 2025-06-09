@@ -4,14 +4,6 @@ import Navbar from "@/components/Header";
 
 
 
-interface BlogPageProps{
-    params: {
-        id: string;
-        slug: string;
-    }
-}
-
-
 const getBlogPostDetail = async (id:string) => {
     
     try {
@@ -24,7 +16,7 @@ const getBlogPostDetail = async (id:string) => {
     }
 }
 
-export default async function BlogPostPage({params}: BlogPageProps) {
+export default async function BlogPostPage({params,}: { params: { id: string; slug: string}}) {
     const blog = await getBlogPostDetail(params.id);
 
     if (!blog) {
