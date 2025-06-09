@@ -5,13 +5,8 @@ import Navbar from "@/components/Header";
 type Params = {
     id: string;
     slug: string;
-}
+};
 
-
-
-type PageProps = {
-    params: Params
-}
 
 const getBlogPostDetail = async (id:string) => {
     
@@ -25,7 +20,8 @@ const getBlogPostDetail = async (id:string) => {
     }
 }
 
-export default async function BlogPostPage({params}: PageProps) {
+export default async function BlogPostPage({params}: {params: Params} ) {
+    const { id, slug } = params;
     const blog = await getBlogPostDetail(params.id);
 
     if (!blog) {
