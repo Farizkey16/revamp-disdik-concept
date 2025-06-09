@@ -6,19 +6,19 @@ const services = [
     title: "Informasi Pendidikan",
     desc: "Akses data pendidikan terbaru di DKI Jakarta.",
     btn: "Lihat Detail",
-    href: "/informasi-publik",
+    href: "/blog",
   },
   {
     title: "Layanan Publik",
     desc: "Pelayanan cepat dan transparan untuk masyarakat.",
     btn: "Gunakan Layanan",
-    href: "/layanan-publik",
+    href: "/services",
   },
   {
     title: "Publikasi Resmi",
     desc: "Dokumen dan laporan resmi terkait pendidikan.",
     btn: "Baca Publikasi",
-    href: "/publikasi",
+    href: "/blog",
   },
 ];
 

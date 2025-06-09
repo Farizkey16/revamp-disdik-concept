@@ -2,9 +2,11 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { apiBackend, apiCall } from "@/utils/apiHelper"
 import { useRouter } from "next/navigation"
+import {Eye, EyeClosed} from 'lucide-react'
+import Navbar from "@/components/Header"
 
 export default function SignUpPage() {
 
@@ -15,6 +17,16 @@ export default function SignUpPage() {
     const inputRefPassword= useRef<HTMLInputElement>(null)
     const inputRefConfPassword = useRef<HTMLInputElement>(null)
     const router = useRouter()
+    const [showPass, setShowPass] = useState<string>("password")
+
+    const showPassword = () => {
+
+      if (showPass === "password") {
+        setShowPass("text")
+      } else {
+        setShowPass("password")
+      }
+    }
 
    
 
@@ -31,7 +43,7 @@ export default function SignUpPage() {
 
             if (username && email && password && confirmpassword) {
                 if (password === confirmpassword) {
-                    const response = await apiBackend.post("/api/data/Users", { 
+                    await apiBackend.post("/api/data/Users", { 
                         username,
                         email,
                         password,
@@ -40,7 +52,6 @@ export default function SignUpPage() {
                     {
                         headers: {
                             "Content-Type": "application/json",
-                            // Add your Backendless app id & api key headers if needed here
                          },
                     }
                     )
@@ -61,6 +72,8 @@ export default function SignUpPage() {
     }
 
   return (
+    <div>
+      <Navbar/>
     <section className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
       <div className="w-full max-w-md">
         <Card className="p-8">
@@ -90,30 +103,38 @@ export default function SignUpPage() {
               required
               ref={inputRefEmail}
             />
-            <div className="flex flex-col md:flex-row md:items-center md:gap-3">
+            <div className="flex flex-row items-center gap-3">
               <Input
-                type="password"
+                type={showPass}
                 placeholder="Write your password"
                 className="w-full md:flex-1"
                 aria-label="Password"
                 required
                 ref={inputRefPassword}
               />
-              <Button className="mt-3 md:mt-0 md:w-16">
-                Show
+              <Button onClick={showPassword} className=" md:w-16">
+                {showPass === "password" ? 
+                (<Eye size={24}/>)
+                  :
+                (<EyeClosed size={24}/>)
+                }
               </Button>
             </div>
-            <div className="flex flex-col md:flex-row md:items-center md:gap-3">
+            <div className="flex flex-row items-center gap-3">
               <Input
-                type="password"
+                type={showPass}
                 placeholder="Confirm your password"
                 className="w-full md:flex-1"
                 aria-label="Confirm Password"
                 required
                 ref={inputRefConfPassword}
               />
-              <Button className="mt-3 md:mt-0 md:w-16">
-                Show
+              <Button onClick={showPassword} className="md:w-16">
+                {showPass === "password" ? 
+                (<Eye size={24}/>)
+                  :
+                (<EyeClosed size={24}/>)
+                }
               </Button>
             </div>
             <Button type="submit" className="w-full">
@@ -123,6 +144,7 @@ export default function SignUpPage() {
         </Card>
       </div>
     </section>
+    </div>
   );
 }
 

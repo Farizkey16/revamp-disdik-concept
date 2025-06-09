@@ -27,7 +27,7 @@ export default function Hero() {
                         Membuka Akses, Menanam Sukses
                     </h3>
                     <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition cursor-pointer">
-                        Pelajari Lebih Lanjut
+                        <a href="/about-us">Pelajari Lebih Lanjut</a>  
                     </button>
                 </div>
 

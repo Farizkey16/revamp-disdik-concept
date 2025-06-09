@@ -3,6 +3,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import {Menu, X} from "lucide-react"
+import { Button } from "./ui/button"
+import { useAuth } from "@/app/context/AuthContext"
 
 interface HeaderTypes{
     name: string,
@@ -15,30 +17,40 @@ const navItems: HeaderTypes[] = [
     { name: 'About Us', href: '/about-us' },
     { name: 'Services', href: '/services'},
     { name: 'Teams', href: '/teams'},
-    { name: 'Blog List', href: '/blog-list'},
+    { name: 'Blog', href: '/blog'},
     { name: 'Create Blog', href: '/create-blog'}
 ]
 
 export default function Navbar() {
 
     const [menuOpen, setMenuOpen] = useState(false)
+    const { state, dispatch } = useAuth();
 
     return <nav className="bg-white shadow w-full sticky top-0 z-50   ">
-        <div className="flex items-center px-4 justify-between max-w-7xl mx-auto">
+        <div className="flex items-center px-4 justify-between  max-w-7xl mx-auto">
 
             {/* Logo */}
             <div className="flex items-center">
             <Image className="w-25 h-25 object-contain" width={300} height={300} src="/assets/logo-disdik.png" alt="logo dinas pendidikan DKI Jakarta" />
-            <span className="text-xl font-bold">Disdik Jakarta</span>
+            <span className="text-md font-bold md:hidden lg:block">Halo, {state.user?.email || "tamu" + "!"}</span>
             </div>
 
             {/* Desktop Menu */}
-            <ul className="hidden md:flex gap-12 text-sm font-medium">
+            <ul className="hidden md:flex gap-12 text-sm md:gap-7 xl:gap-12 font-medium items-center">
                 {navItems.map((value, index) => 
                 <li key={index}>
                 <Link className="hover:text-blue-600 hover:underline font-bold" href={value.href}> {value.name}</Link>  
                 </li>
                 )}
+                <li>{state.isAuthenticated === true ? (
+                            <Button onClick={() => dispatch({type: 'LOGOUT'})} className="cursor-pointer font-bold bg-red-500 hover:bg-red-700">
+                                Keluar
+                            </Button>
+                            ) : (
+                            <Button className="cursor-pointer font-bold bg-blue-500 hover:bg-blue-700">
+                                <Link href={"/sign-in"}>Masuk</Link>
+                            </Button>
+                            )}</li>
             </ul>
 
             {/* Mobile Menu */}
@@ -62,6 +74,17 @@ export default function Navbar() {
                             </Link>
                         </li>
                     ))}
+                    <li>
+                        {state.isAuthenticated === true ? (
+                            <Button onClick={() => dispatch({type: 'LOGOUT'})} className="cursor-pointer font-bold bg-red-500 hover:bg-red-700">
+                                Keluar
+                            </Button>
+                            ) : (
+                            <Button className="cursor-pointer font-bold bg-blue-500 hover:bg-blue-700">
+                                <Link href={"/sign-in"}>Masuk</Link>
+                            </Button>
+                            )}
+                    </li>
                 </ul>
                 </div>
             )}
