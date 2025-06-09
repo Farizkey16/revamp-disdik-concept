@@ -47,7 +47,7 @@ const cultureBox: any[] = [
 ]
 
 
-export default function AboutUs() {
+export default function AboutPage() {
 
     return (
         <div>
@@ -57,7 +57,7 @@ export default function AboutUs() {
     )}
 
 
-export function AboutSection() {
+function AboutSection() {
 
     return (
         <section className="relative w-full h-[60vh] md:h-[80vh]">  

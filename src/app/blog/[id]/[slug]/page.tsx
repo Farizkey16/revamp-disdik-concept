@@ -11,6 +11,7 @@ interface BlogType{
     }
 }
 
+
 const getBlogPostDetail = async (id:string) => {
     
     try {
