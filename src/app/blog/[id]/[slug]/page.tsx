@@ -2,7 +2,8 @@ import { apiBackend } from "@/utils/apiHelper";
 import parse from "html-react-parser"
 import Navbar from "@/components/Header";
 
-interface Props {
+
+type Props = {
     params: {
         id: string;
         slug: string;
