@@ -3,7 +3,7 @@ import parse from "html-react-parser"
 import Navbar from "@/components/Header";
 
 
-type Props = {
+type PageProps = {
     params: {
         id: string;
         slug: string;
@@ -22,7 +22,7 @@ const getBlogPostDetail = async (id:string) => {
     }
 }
 
-export default async function BlogPostPage({params,}: Props) {
+export default async function BlogPostPage({params}: PageProps) {
     const blog = await getBlogPostDetail(params.id);
 
     if (!blog) {
