@@ -17,7 +17,7 @@ export default function BlogCreationPage() {
 }
 
 
-export function BlogForm() {
+function BlogForm() {
 
     const [title, setTitle] = useState("")
     const [summary, setSummary] = useState("")

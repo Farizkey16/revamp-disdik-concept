@@ -1,4 +1,9 @@
-export default ({ env }) => ({
+type EnvFunction = {
+  (key: string): string;
+  bool: (key: string, defaultValue?: boolean) => boolean;
+};
+
+export default ({ env }: { env: EnvFunction }) => ({
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
   },
