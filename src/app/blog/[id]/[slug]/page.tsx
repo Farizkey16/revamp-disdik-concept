@@ -2,12 +2,15 @@ import { apiBackend } from "@/utils/apiHelper";
 import parse from "html-react-parser"
 import Navbar from "@/components/Header";
 
+type Params = {
+    id: string;
+    slug: string;
+}
+
+
 
 type PageProps = {
-    params: {
-        id: string;
-        slug: string;
-    };
+    params: Params
 }
 
 const getBlogPostDetail = async (id:string) => {
