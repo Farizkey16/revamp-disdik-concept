@@ -1,5 +1,7 @@
 import path from 'path';
 
+type ClientType = 'mysql' | 'postgres' | 'sqlite';
+
 type EnvFunction = {
   (key: string, defaultValue?: any): string;
   int: (key: string, defaultValue?: number) => number;
@@ -7,7 +9,7 @@ type EnvFunction = {
 };
 
 export default ({ env }: {env: EnvFunction}) => {
-  const client = env('DATABASE_CLIENT', 'sqlite');
+  const client = env('DATABASE_CLIENT', 'sqlite') as ClientType;
 
   const connections = {
     mysql: {
