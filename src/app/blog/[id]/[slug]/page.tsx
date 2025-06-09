@@ -2,10 +2,10 @@ import { apiBackend } from "@/utils/apiHelper";
 import parse from "html-react-parser"
 import Navbar from "@/components/Header";
 
-type Params = {
+type Params = Promise<{
     id: string;
     slug: string;
-};
+}>;
 
 
 const getBlogPostDetail = async (id:string) => {
@@ -21,8 +21,8 @@ const getBlogPostDetail = async (id:string) => {
 }
 
 export default async function BlogPostPage({params}: {params: Params} ) {
-    const { id, slug } = params;
-    const blog = await getBlogPostDetail(params.id);
+    const { id, slug } = await params;
+    const blog = await getBlogPostDetail(id);
 
     if (!blog) {
         return <div>Blog tidak ditemukan.</div>
