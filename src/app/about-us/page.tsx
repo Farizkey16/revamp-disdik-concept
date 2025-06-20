@@ -46,20 +46,10 @@ const cultureBox: any[] = [
   },
 ]
 
-
 export default function AboutPage() {
 
     return (
-        <div>
-        <Navbar/>
-        <AboutSection/>
-        </div>
-    )}
-
-
-function AboutSection() {
-
-    return (
+        <main>
         <section className="relative w-full h-[60vh] md:h-[80vh]">  
         
             {/* About Us Hero */}
@@ -79,7 +69,10 @@ function AboutSection() {
                 <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-4">About Us</h1>
                 <p className="px-2 sm:px-4 max-w-xl sm:max-w-2xl md:max-w-3xl text-sm sm:text-base md:text-lg text-center"> Dibentuk sebagai bagian dari struktur pemerintah daerah yang mengelola urusan pendidikan. Sejak berdirinya, Disdik Jakarta berfokus pada pemerataan akses pendidikan, peningkatan mutu sekolah, serta penyelarasan sistem pendidikan dengan tantangan zaman. Seiring waktu, mereka meluncurkan berbagai inisiatif seperti digitalisasi sekolah, pendidikan inklusif, dan revitalisasi SMK untuk menjawab kebutuhan dunia kerja.</p>
             </div>
-
+        
+        </section>
+        
+        <section>
             {/* Team Member */}
             <div className="relative z-10 mt-8">
             <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-gray-800 mb-4 sm:mb-6 text-center bg-white/80 py-2 rounded">Struktur Organisasi</h2>
@@ -140,6 +133,7 @@ function AboutSection() {
                 </div>
             </div>
         </section>
+        </main>
     )
 
 }
