@@ -2,6 +2,7 @@ import Navbar from "@/components/Header";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { ShieldCheck, Globe, Briefcase, Sparkles, Users, LucideIcon } from "lucide-react";
+import Footer from "@/components/Footer";
 
 type TeamMembers = {
   name: string;
@@ -197,6 +198,7 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

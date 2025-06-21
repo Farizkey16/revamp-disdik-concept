@@ -6,6 +6,7 @@ import Link from "next/link"
 import Navbar from "@/components/Header"
 import Image from "next/image"
 import { slugify } from "@/utils/slugify"
+import Footer from "@/components/Footer"
 
 
 
@@ -76,6 +77,7 @@ useEffect(() => {
             ))}
             </div>
         </section>
+        <Footer />
         </main>
     )
 }

@@ -14,6 +14,7 @@ export default function Home() {
       <CompanyOverview/>
       <ServicesComponent/>
       <TestiUser/>
+      <Footer />
     </>
   );
 }

@@ -3,6 +3,7 @@ import {Baby, BookOpenCheck, School, Briefcase, Users, ClipboardList, Wrench, Gl
 import type { LucideIcon } from 'lucide-react'
 import Navbar from "@/components/Header";
 import TestiUser from "@/components/Testimonials";
+import Footer from "@/components/Footer";
 
 
 
@@ -111,5 +112,6 @@ export default function ServicesPage() {
 
 
         </section>
+        <Footer />
         </>    
 )}
