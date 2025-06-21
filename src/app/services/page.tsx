@@ -62,7 +62,7 @@ const servicesBox = [
 export default function ServicesPage() {
     
     return (
-        <div>
+        <>
         <Navbar/>
 
         <section className="relative w-full h-[60vh] md:h-[80vh] pt-20">
@@ -111,5 +111,5 @@ export default function ServicesPage() {
 
 
         </section>
-        </div>    
+        </>    
 )}

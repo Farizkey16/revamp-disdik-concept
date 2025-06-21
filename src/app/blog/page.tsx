@@ -37,7 +37,7 @@ useEffect(() => {
 
    
     return (
-        <div>
+        <main>
          <Navbar/>
         <section className="relative pt-20 w-full h-[60vh] md:h-[80vh] sm:px-6 lg:px-8 mx-auto">
             {/* Blog List Hero Image */}
@@ -76,6 +76,6 @@ useEffect(() => {
             ))}
             </div>
         </section>
-        </div>
+        </main>
     )
 }

@@ -3,7 +3,7 @@ import Navbar from "./Header";
 
 export default function Hero() {
     return (
-        <div>
+        <>
             
                 <section className="relative w-full h-[80vh]">
                 {/* Image Div */}
@@ -34,6 +34,6 @@ export default function Hero() {
                 
             {/* </div> */}
         </section>
-        </div>
+        </>
     )
 }
