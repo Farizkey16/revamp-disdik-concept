@@ -1,6 +1,7 @@
 import Navbar from "@/components/Header";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
+import Footer from "@/components/Footer";
 
 const teamMembersR1: any[] = [
   {
@@ -168,6 +169,7 @@ export default function TeamsPage() {
           )}
         </div>
       </section>
+      <Footer/>
     </main>
   );
 }

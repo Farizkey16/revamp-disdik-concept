@@ -38,8 +38,7 @@ useEffect(() => {
 
    
     return (
-        <main>
-         <Navbar/>
+      <main>
         <section className="relative pt-20 w-full h-[60vh] md:h-[80vh] sm:px-6 lg:px-8 mx-auto">
             {/* Blog List Hero Image */}
                 <div className="absolute inset-0 z-0">
@@ -57,7 +56,8 @@ useEffect(() => {
                         <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-4">Articles</h1>
                         <p className="px-2 sm:px-4 max-w-xl sm:max-w-2xl md:max-w-3xl text-sm sm:text-base md:text-lg text-center"> Pilihan artikel tulisan tim Disdik DKI Jakarta</p>
                 </div>
-            
+            </section>
+            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 pt-12">
             {posts.map((blog: any) => ( 
                 <div key={blog.objectId} className="bg-white shadow rounded-lg p-6 flex flex-col justify-between">
@@ -76,8 +76,10 @@ useEffect(() => {
                 </div>
             ))}
             </div>
-        </section>
-        <Footer />
+            </section>
+            
+          <Footer/>
         </main>
+       
     )
 }
