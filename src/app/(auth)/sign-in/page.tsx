@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
-import { apiAuth, apiBackend } from "@/utils/apiHelper";
+import { apiAuth, apiBackend, apiPrisma } from "@/utils/apiHelper";
 import Link from "next/link";
 import { useState } from "react";
 import {Eye, EyeClosed} from 'lucide-react'
@@ -37,9 +37,16 @@ export default function SignInPage() {
 
         try {
 
+            // 1. POST to Auth Backendless
             const response_login = await apiAuth.post("/users/login", {
                 login: email,
                 password,
+            })
+
+            // 2. GET from Prisma
+            await apiPrisma.post("/sign-in", {
+              email,
+              password
             })
             
 
@@ -71,7 +78,6 @@ export default function SignInPage() {
 
   return (
     <div>
-    <Navbar/>
     <section className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
       <div className="w-full max-w-md">
         <Card className="p-8">

@@ -1,41 +1,55 @@
-import { apiBackend } from "@/utils/apiHelper";
-import parse from "html-react-parser"
-import Navbar from "@/components/Header";
+import { apiPrisma } from "@/utils/apiHelper";
+import { slugify } from "@/utils/slugify";
 
-type Params = Promise<{
+interface ArticleProps {
+  params: {
     id: string;
-    slug: string;
-}>;
-
-
-const getBlogPostDetail = async (id:string) => {
-    
-    try {
-
-    const response = await apiBackend.get(`/api/data/blog-posts/${id}`);
-    return response.data;
-
-    } catch(error) {
-        console.error(error);
-    }
+    title: string;
+  };
 }
 
-export default async function BlogPostPage({params}: {params: Params} ) {
-    const { id, slug } = await params;
-    const blog = await getBlogPostDetail(id);
+const getArticlesDetail = async (title: String, id: String) => {
+  try {
+    const articles = await apiPrisma.get(`/Articles/${id}/${title}`);
+    console.log(articles.data.data);
+    return articles.data.data;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+};
 
-    if (!blog) {
-        return <div>Blog tidak ditemukan.</div>
-    }
+export default async function ArticleDetail(props: ArticleProps) {
+  const params = await props.params // Per Next.js 15 documentation recommendation, params must be awaited.
+  
+  const { title, id } = params
+  const article_fetch = await getArticlesDetail(title, id);
+  
 
-    return (
-    <div>
-    <Navbar/>
-    <div className="max-w-3xl mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
-      <p className="text-sm text-gray-500 mb-2">Oleh {blog.author} • {new Date(blog.publishDate).toLocaleDateString()}</p>
-      <div className="prose">{parse(blog.content)}</div>
+  if (!article_fetch) {
+    return <div>Article not found.</div>;
+  }
+
+  return (
+     <div key={article_fetch.id} className="p-6 max-w-3xl mx-auto">
+    {/* Cover Image */}
+    <div className="mb-6">
+      <img
+        src={article_fetch.thumbnail}
+        alt={`Thumbnail for ${article_fetch.title}`}
+        className="w-full h-64 object-cover rounded-lg shadow"
+      />
     </div>
-    </div>
+
+    {/* Title & Meta */}
+    <h1 className="text-3xl font-bold mb-4">{article_fetch.title}</h1>
+    <p className="text-gray-600 mb-8 italic">
+      Oleh <span className="font-semibold">{article_fetch.author.username}</span> –{" "}
+      {article_fetch.category.category_name}
+    </p>
+
+    {/* Content */}
+    <div className="prose prose-lg">{article_fetch.content}</div>
+  </div>
   );
 }
